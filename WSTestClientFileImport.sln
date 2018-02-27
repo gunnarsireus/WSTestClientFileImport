@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WSTestClientFileImport", "WSTestClientFileImport\WSTestClientFileImport.csproj", "{DDFF4AB6-C3C3-4CF7-A7DA-4CA3AE3F50B9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DDFF4AB6-C3C3-4CF7-A7DA-4CA3AE3F50B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDFF4AB6-C3C3-4CF7-A7DA-4CA3AE3F50B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDFF4AB6-C3C3-4CF7-A7DA-4CA3AE3F50B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDFF4AB6-C3C3-4CF7-A7DA-4CA3AE3F50B9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

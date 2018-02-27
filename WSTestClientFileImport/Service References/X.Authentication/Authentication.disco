@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="https://ws.xledger.net/WS/Common/Lib/Authentication.asmx?wsdl" docRef="https://ws.xledger.net/WS/Common/Lib/Authentication.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="https://ws.xledger.net/WS/Common/Lib/Authentication.asmx" xmlns:q1="http://ws.xledger.net/" binding="q1:AuthenticationSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="https://ws.xledger.net/WS/Common/Lib/Authentication.asmx" xmlns:q2="http://ws.xledger.net/" binding="q2:AuthenticationSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>
