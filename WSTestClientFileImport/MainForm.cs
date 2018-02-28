@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.IO;
 using System.Security.Cryptography.X509Certificates;
-using System.Text;
 using System.Windows.Forms;
 
 namespace WSTestClientFileImport
