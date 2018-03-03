@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://ws.xledger.net/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://ws.xledger.net/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://ws.xledger.net/">
+      <s:element name="LogonKey">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sLogonID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sApplication" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LogonKeyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LogonKeyResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LogonTicket">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sLogonID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sApplication" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LogonTicketResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LogonTicketResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LogonRoleAccess">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sLogonID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="lRoleID" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="sApplication" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LogonRoleAccessResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LogonRoleAccessResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="LogonKeySoapIn">
+    <wsdl:part name="parameters" element="tns:LogonKey" />
+  </wsdl:message>
+  <wsdl:message name="LogonKeySoapOut">
+    <wsdl:part name="parameters" element="tns:LogonKeyResponse" />
+  </wsdl:message>
+  <wsdl:message name="LogonTicketSoapIn">
+    <wsdl:part name="parameters" element="tns:LogonTicket" />
+  </wsdl:message>
+  <wsdl:message name="LogonTicketSoapOut">
+    <wsdl:part name="parameters" element="tns:LogonTicketResponse" />
+  </wsdl:message>
+  <wsdl:message name="LogonRoleAccessSoapIn">
+    <wsdl:part name="parameters" element="tns:LogonRoleAccess" />
+  </wsdl:message>
+  <wsdl:message name="LogonRoleAccessSoapOut">
+    <wsdl:part name="parameters" element="tns:LogonRoleAccessResponse" />
+  </wsdl:message>
+  <wsdl:portType name="AuthenticationSoap">
+    <wsdl:operation name="LogonKey">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Logon Key</wsdl:documentation>
+      <wsdl:input message="tns:LogonKeySoapIn" />
+      <wsdl:output message="tns:LogonKeySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LogonTicket">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Logon Ticket</wsdl:documentation>
+      <wsdl:input message="tns:LogonTicketSoapIn" />
+      <wsdl:output message="tns:LogonTicketSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LogonRoleAccess">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Check Logon Role Access</wsdl:documentation>
+      <wsdl:input message="tns:LogonRoleAccessSoapIn" />
+      <wsdl:output message="tns:LogonRoleAccessSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AuthenticationSoap" type="tns:AuthenticationSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="LogonKey">
+      <soap:operation soapAction="http://ws.xledger.net/LogonKey" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogonTicket">
+      <soap:operation soapAction="http://ws.xledger.net/LogonTicket" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogonRoleAccess">
+      <soap:operation soapAction="http://ws.xledger.net/LogonRoleAccess" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="AuthenticationSoap12" type="tns:AuthenticationSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="LogonKey">
+      <soap12:operation soapAction="http://ws.xledger.net/LogonKey" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogonTicket">
+      <soap12:operation soapAction="http://ws.xledger.net/LogonTicket" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogonRoleAccess">
+      <soap12:operation soapAction="http://ws.xledger.net/LogonRoleAccess" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Authentication">
+    <wsdl:port name="AuthenticationSoap" binding="tns:AuthenticationSoap">
+      <soap:address location="https://ws.xledger.net/WS/Common/Lib/Authentication.asmx" />
+    </wsdl:port>
+    <wsdl:port name="AuthenticationSoap12" binding="tns:AuthenticationSoap12">
+      <soap12:address location="https://ws.xledger.net/WS/Common/Lib/Authentication.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

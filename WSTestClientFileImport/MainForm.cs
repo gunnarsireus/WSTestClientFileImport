@@ -94,11 +94,11 @@ namespace WSTestClientFileImport
                 if (ValidateParams())
                 {
                     // Authenticate
-                    X.Authentication.AuthenticationSoapClient ac = new WSTestClientFileImport.X.Authentication.AuthenticationSoapClient();
+                    Authentication.AuthenticationSoapClient ac = new WSTestClientFileImport.Authentication.AuthenticationSoapClient();
                     string sKey = ac.LogonKey(this.txtUserName.Text, this.txtPassword.Text, this.cbApplication.SelectedItem.ToString());
 
                     // File Upload Web Service
-                    X.FileUpload.FileUploadSoapClient fc = new WSTestClientFileImport.X.FileUpload.FileUploadSoapClient();
+                    FileUpload.FileUploadSoapClient fc = new WSTestClientFileImport.FileUpload.FileUploadSoapClient();
 
                     // Set Certificate
                     fc.ClientCredentials.ClientCertificate.Certificate = ((CertificateWrapper)this.cbCertificate.SelectedItem).Certificate;

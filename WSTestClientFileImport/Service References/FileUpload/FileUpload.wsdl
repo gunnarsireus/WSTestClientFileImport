@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://ws.xledger.net/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://ws.xledger.net/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://ws.xledger.net/">
+      <s:element name="GetFileUploadEntityCodes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sApplication" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFileUploadEntityCodesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFileUploadEntityCodesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AuthenticateConnection">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sApplication" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AuthenticateConnectionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AuthenticateConnectionResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReceiveScannerFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sApplication" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sFileName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="aFile" type="s:base64Binary" />
+            <s:element minOccurs="1" maxOccurs="1" name="iEntityCode" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReceiveScannerFileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ReceiveScannerFileResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReceiveFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sApplication" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sFileName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="aFile" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="sImportCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="iEntityCode" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReceiveFileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ReceiveFileResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetFileUploadEntityCodesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFileUploadEntityCodes" />
+  </wsdl:message>
+  <wsdl:message name="GetFileUploadEntityCodesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFileUploadEntityCodesResponse" />
+  </wsdl:message>
+  <wsdl:message name="AuthenticateConnectionSoapIn">
+    <wsdl:part name="parameters" element="tns:AuthenticateConnection" />
+  </wsdl:message>
+  <wsdl:message name="AuthenticateConnectionSoapOut">
+    <wsdl:part name="parameters" element="tns:AuthenticateConnectionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReceiveScannerFileSoapIn">
+    <wsdl:part name="parameters" element="tns:ReceiveScannerFile" />
+  </wsdl:message>
+  <wsdl:message name="ReceiveScannerFileSoapOut">
+    <wsdl:part name="parameters" element="tns:ReceiveScannerFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReceiveFileSoapIn">
+    <wsdl:part name="parameters" element="tns:ReceiveFile" />
+  </wsdl:message>
+  <wsdl:message name="ReceiveFileSoapOut">
+    <wsdl:part name="parameters" element="tns:ReceiveFileResponse" />
+  </wsdl:message>
+  <wsdl:portType name="FileUploadSoap">
+    <wsdl:operation name="GetFileUploadEntityCodes">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get FileUpload Entity Codes</wsdl:documentation>
+      <wsdl:input message="tns:GetFileUploadEntityCodesSoapIn" />
+      <wsdl:output message="tns:GetFileUploadEntityCodesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AuthenticateConnection">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Test Authentication</wsdl:documentation>
+      <wsdl:input message="tns:AuthenticateConnectionSoapIn" />
+      <wsdl:output message="tns:AuthenticateConnectionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveScannerFile">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Receives scanner file as Bytearray, returns file key on success, otherwise 0</wsdl:documentation>
+      <wsdl:input message="tns:ReceiveScannerFileSoapIn" />
+      <wsdl:output message="tns:ReceiveScannerFileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveFile">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Receives file as Bytearray, returns file key on success, otherwise 0</wsdl:documentation>
+      <wsdl:input message="tns:ReceiveFileSoapIn" />
+      <wsdl:output message="tns:ReceiveFileSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="FileUploadSoap" type="tns:FileUploadSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetFileUploadEntityCodes">
+      <soap:operation soapAction="http://ws.xledger.net/GetFileUploadEntityCodes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AuthenticateConnection">
+      <soap:operation soapAction="http://ws.xledger.net/AuthenticateConnection" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveScannerFile">
+      <soap:operation soapAction="http://ws.xledger.net/ReceiveScannerFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveFile">
+      <soap:operation soapAction="http://ws.xledger.net/ReceiveFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="FileUploadSoap12" type="tns:FileUploadSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetFileUploadEntityCodes">
+      <soap12:operation soapAction="http://ws.xledger.net/GetFileUploadEntityCodes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AuthenticateConnection">
+      <soap12:operation soapAction="http://ws.xledger.net/AuthenticateConnection" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveScannerFile">
+      <soap12:operation soapAction="http://ws.xledger.net/ReceiveScannerFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveFile">
+      <soap12:operation soapAction="http://ws.xledger.net/ReceiveFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="FileUpload">
+    <wsdl:port name="FileUploadSoap" binding="tns:FileUploadSoap">
+      <soap:address location="https://ws.xledger.net/WS/Common/Lib/FileUpload.asmx" />
+    </wsdl:port>
+    <wsdl:port name="FileUploadSoap12" binding="tns:FileUploadSoap12">
+      <soap12:address location="https://ws.xledger.net/WS/Common/Lib/FileUpload.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
